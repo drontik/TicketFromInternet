@@ -74,7 +74,7 @@ namespace TicketFromInternet
                                     client.Connect("smtp.yandex.ru", 465, true);
                                     client.Authenticate("drotik-timofeev@yandex.by", "superstar199416");
                                     client.Send(emailMessage);
-                                    //client.Send(emailMessage1);
+                                    client.Send(emailMessage1);
                                     client.Disconnect(true);
                                 }
                             }
