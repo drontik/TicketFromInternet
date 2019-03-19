@@ -69,21 +69,21 @@ namespace TicketFromInternet
                                 {
                                     Text = $"Появился талон в интернете! {text}"
                                 };
-                                //var emailMessage1 = new MimeMessage();
-                                //emailMessage1.From.Add(new MailboxAddress("Поликлиника", "drotik-timofeev@yandex.ru"));
-                                //emailMessage1.To.Add(new MailboxAddress("", "alesya_mir@tut.by"));
-                                //emailMessage1.Subject = "Талон";
-                                //emailMessage1.Body = new TextPart("Plain")
-                                //{
-                                //    Text = $"Появился талон в интернете! {text}"
-                                //};
+                                var emailMessage1 = new MimeMessage();
+                                emailMessage1.From.Add(new MailboxAddress("Поликлиника", "drotik-timofeev@yandex.ru"));
+                                emailMessage1.To.Add(new MailboxAddress("", "alesya_mir@tut.by"));
+                                emailMessage1.Subject = "Талон";
+                                emailMessage1.Body = new TextPart("Plain")
+                                {
+                                    Text = $"Появился талон в интернете! {text}"
+                                };
 
                                 using (var client = new SmtpClient())
                                 {
                                     client.Connect("smtp.yandex.ru", 465, true);
                                     client.Authenticate("drotik-timofeev@yandex.by", "superstar199416");
                                     client.Send(emailMessage);
-                                    //client.Send(emailMessage1);
+                                    client.Send(emailMessage1);
                                     client.Disconnect(true);
                                 }
                             }
